@@ -1,6 +1,6 @@
 # Portfolio Profesional de Moisés González López
 
-Bienvenido a mi espacio digital. Soy especialista en ciberseguridad, arquitecto SOC y desarrollador de soluciones multiplataforma, con una trayectoria que combina rigor técnico, visión estratégica y compromiso con la democratización de la seguridad digital.
+Bienvenido a mi espacio digital. Soy especialista en ciberseguridad, analista SOC y desarrollador de soluciones multiplataforma, con una trayectoria que combina rigor técnico, visión estratégica y compromiso con la democratización de la seguridad digital.
 
 Este repositorio forma parte de mi portfolio público, donde comparto:
 
