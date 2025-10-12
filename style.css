@@ -181,21 +181,23 @@ section {
     line-height: 1.6;
 }
 
-.about-content h4 {
-    font-size: 2rem;
+.about-content .skills-heading {
+    font-size: 2.2rem;
+    font-family: 'Poppins', sans-serif;
     color: var(--main-color);
-    margin: 2rem 0 1rem;
+    margin-top: 3rem;
+    margin-bottom: 1rem;
 }
 
-.skills-icons i {
-    font-size: 4rem;
-    margin: 1rem;
+.about-content .skills-list p {
+    font-size: 1.6rem;
+    line-height: 1.7;
+    margin-bottom: 1rem;
+}
+
+.about-content .skills-list strong {
+    font-weight: 700;
     color: var(--text-color);
-    transition: color .3s;
-}
-
-.skills-icons i:hover {
-    color: var(--main-color);
 }
 
 /* ======== SECCIÓN PORTFOLIO ======== */
@@ -273,66 +275,67 @@ section {
     color: var(--second-bg-color);
 }
 
-/* ======== SECCIÓN CONTACTO ======== */
-.contact {
+/* ======== SECCIÓN CERTIFICACIONES Y CURSOS ======== */
+.certificaciones {
     background: var(--second-bg-color);
 }
 
-.contact form {
-    max-width: 70rem;
-    margin: 1rem auto;
-    text-align: center;
-    margin-bottom: 3rem;
+.certificaciones-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
 }
 
-.contact form .input-box {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-}
-
-.contact form input,
-.contact form textarea {
-    width: 100%;
-    padding: 1.5rem;
-    font-size: 1.6rem;
-    color: var(--text-color);
+.certificacion-box {
     background: var(--bg-color);
-    border-radius: .8rem;
-    margin: .7rem 0;
-    border: .2rem solid transparent;
-    transition: border .3s;
+    padding: 3rem 2rem 4rem;
+    border-radius: 2rem;
+    text-align: center;
+    border: .2rem solid var(--bg-color);
+    transition: all .5s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
-.contact form input:focus,
-.contact form textarea:focus {
-    border: .2rem solid var(--main-color);
+.certificacion-box:hover {
+    border-color: var(--main-color);
+    transform: scale(1.02);
 }
 
-.contact form .input-box input {
-    width: 49%;
+.certificacion-box i {
+    font-size: 7rem;
+    color: var(--main-color);
+    margin-bottom: 2rem;
 }
 
-.contact form textarea {
-    resize: none;
+.certificacion-box h3 {
+    font-size: 2.2rem;
+    font-family: 'Poppins', sans-serif;
+    margin-bottom: 1.5rem;
 }
 
-.contact form .btn {
-    margin-top: 2rem;
-    cursor: pointer;
+.certificacion-box p {
+    font-size: 1.6rem;
+    line-height: 1.6;
+    flex-grow: 1; /* Permite que el párrafo crezca para alinear los botones */
+    margin-bottom: 2rem;
+}
+
+.certificacion-box .btn {
     display: inline-block;
-    padding: 1.2rem 2.8rem;
+    padding: 1rem 2.8rem;
     background: var(--main-color);
     border-radius: 4rem;
-    box-shadow: 0 0 1rem var(--main-color);
-    font-size: 1.6rem;
+    font-size: 1.4rem;
     color: var(--second-bg-color);
     letter-spacing: .1rem;
     font-weight: 600;
     transition: all .5s ease;
+    box-shadow: 0 0 1rem var(--main-color);
 }
 
-.contact form .btn:hover {
+.certificacion-box .btn:hover {
     box-shadow: none;
 }
 
@@ -348,6 +351,31 @@ section {
 
 .footer-text p {
     font-size: 1.6rem;
+}
+
+.footer-social {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.footer-social a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 4rem;
+    height: 4rem;
+    background: transparent;
+    border: .2rem solid var(--main-color);
+    border-radius: 50%;
+    font-size: 2rem;
+    color: var(--main-color);
+    transition: all .5s ease;
+}
+
+.footer-social a:hover {
+    background: var(--main-color);
+    color: var(--second-bg-color);
+    box-shadow: 0 0 1rem var(--main-color);
 }
 
 .footer-iconTop a {
@@ -396,14 +424,7 @@ section {
 @media (max-width: 768px) {
     /* Aquí podrías añadir un menú hamburguesa en el futuro */
     .navbar {
-        /* Por ahora, lo ocultamos y lo simplificamos */
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        padding: 1rem 3%;
-        background: var(--bg-color);
-        display: none; /* Oculto hasta implementar JS para el menú */
+        display: none; 
     }
 
     .home {
@@ -420,6 +441,10 @@ section {
         text-align: center;
     }
 
+    .about-content h2 {
+        text-align: center;
+    }
+
     .about-img img {
         width: 70vw;
         margin-top: 4rem;
@@ -431,6 +456,15 @@ section {
 
     .portfolio-container {
         grid-template-columns: repeat(2, 1fr);
+    }
+
+    .certificaciones-container {
+        grid-template-columns: 1fr;
+    }
+
+    .footer {
+        flex-direction: column-reverse;
+        gap: 2rem;
     }
 }
 
@@ -445,62 +479,15 @@ section {
         font-size: 50%;
     }
 
-    .contact form .input-box input {
-        width: 100%;
+    .home-content .btn-group {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
     }
-}
-/* ======== AJUSTES ADICIONALES PARA EL NUEVO CONTENIDO ======== */
 
-/* Estilos para la lista de competencias en "Sobre Mí" */
-.about-content .skills-heading {
-    font-size: 2.2rem;
-    font-family: 'Poppins', sans-serif;
-    color: var(--main-color);
-    margin-top: 3rem;
-    margin-bottom: 1rem;
-}
-
-.about-content .skills-list p {
-    font-size: 1.6rem;
-    line-height: 1.7;
-    margin-bottom: 1rem;
-}
-
-.about-content .skills-list strong {
-    font-weight: 700;
-    color: var(--text-color);
-}
-
-/* Estilos para los iconos sociales del footer */
-.footer-social {
-    display: flex;
-    gap: 1.5rem;
-}
-
-.footer-social a {
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    width: 4rem;
-    height: 4rem;
-    background: transparent;
-    border: .2rem solid var(--main-color);
-    border-radius: 50%;
-    font-size: 2rem;
-    color: var(--main-color);
-    transition: all .5s ease;
-}
-
-.footer-social a:hover {
-    background: var(--main-color);
-    color: var(--second-bg-color);
-    box-shadow: 0 0 1rem var(--main-color);
-}
-
-/* Ajuste para que el footer se vea bien en móviles */
-@media (max-width: 768px) {
-    .footer {
-        flex-direction: column-reverse;
-        gap: 2rem;
+    .home-content .btn-group a {
+        width: 70%;
+        margin-right: 0;
     }
 }
