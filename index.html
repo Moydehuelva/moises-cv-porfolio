@@ -1,122 +1,120 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Portfolio de Moisés González López</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
-  <style>
-    body {
-      font-family: 'Roboto', sans-serif;
-      margin: 0;
-      background-color: #0f1117;
-      color: #f0f0f0;
-    }
-    header {
-      background-color: #1f2230;
-      padding: 20px;
-      text-align: center;
-    }
-    header h1 {
-      margin: 0;
-      font-size: 2em;
-    }
-    nav {
-      display: flex;
-      justify-content: center;
-      background-color: #2a2e3d;
-      padding: 10px;
-    }
-    nav a {
-      color: #f0f0f0;
-      margin: 0 15px;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    nav a:hover {
-      color: #00bcd4;
-    }
-    .intro {
-      text-align: center;
-      padding: 40px 20px;
-    }
-    .cards {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
-      padding: 20px;
-    }
-    .card {
-      background-color: #1f2230;
-      border-radius: 8px;
-      padding: 20px;
-      width: 250px;
-      text-align: center;
-      box-shadow: 0 0 10px rgba(0,0,0,0.3);
-    }
-    .card h3 {
-      margin-top: 0;
-    }
-    .card a {
-      display: inline-block;
-      margin-top: 10px;
-      color: #00bcd4;
-      text-decoration: none;
-    }
-    footer {
-      background-color: #2a2e3d;
-      text-align: center;
-      padding: 20px;
-      font-size: 0.9em;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moisés - Portfolio de Desarrollador</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <header>
-    <h1>Moisés González López</h1>
-    <p>Especialista en Ciberseguridad · Analista SOC · Desarrollador de aplicaciones.</p>
-  </header>
+    <header class="header">
+        <a href="#" class="logo">Moisés.dev</a>
+        <nav class="navbar">
+            <a href="#home" class="active">Inicio</a>
+            <a href="#about">Sobre Mí</a>
+            <a href="#portfolio">Portfolio</a>
+            <a href="#contact">Contacto</a>
+        </nav>
+    </header>
 
-  <nav>
-    <a href="cv.html">Currículum</a>
-    <a href="proyectos.html">Proyectos</a>
-    <a href="documentos.html">Documentos</a>
-    <a href="contacto.html">Contacto</a>
-  </nav>
+    <section class="home" id="home">
+        <div class="home-content">
+            <h1>Hola, soy Moisés</h1>
+            <h3>Desarrollador Web Full Stack</h3>
+            <p>Apasionado por crear soluciones web innovadoras y funcionales. Buscando siempre nuevos retos para seguir creciendo profesionalmente.</p>
+            <div class="btn-group">
+                <a href="#contact" class="btn">Contáctame</a>
+                <a href="https://github.com/Moydehuelva" target="_blank" class="btn btn-secondary">Mi GitHub</a>
+            </div>
+        </div>
+        <div class="home-social">
+            <a href="https://www.linkedin.com/in/moises-d-b1a7b31a8/" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/Moydehuelva" target="_blank"><i class="fab fa-github"></i></a>
+        </div>
+    </section>
 
-  <section class="intro">
-    <h2>Bienvenido a mi porfolio profesional</h2>
-    <p>Explora mi trayectoria, proyectos técnicos.</p>
-  </section>
+    <section class="about" id="about">
+        <div class="about-img">
+            <img src="https://via.placeholder.com/400" alt="Foto de Moisés">
+        </div>
+        <div class="about-content">
+            <h2 class="heading">Sobre <span>Mí</span></h2>
+            <h3>Un poco de mi trayectoria</h3>
+            <p>Tras años de experiencia en el sector del transporte, decidí reinventarme y seguir mi verdadera pasión: la tecnología y el desarrollo web. He completado un bootcamp intensivo donde he adquirido sólidos conocimientos en el stack MERN (MongoDB, Express, React, Node.js) y ahora estoy enfocado en aplicar mis habilidades para construir aplicaciones web modernas y eficientes.</p>
+            <h4>Mis Habilidades:</h4>
+            <div class="skills-icons">
+                 <i class="fab fa-html5" title="HTML5"></i>
+                 <i class="fab fa-css3-alt" title="CSS3"></i>
+                 <i class="fab fa-js" title="JavaScript"></i>
+                 <i class="fab fa-react" title="React"></i>
+                 <i class="fab fa-node-js" title="Node.js"></i>
+                 <i class="fab fa-git-alt" title="Git"></i>
+                 </div>
+        </div>
+    </section>
 
-  <section class="cards">
-    <div class="card">
-      <h3>📄 Currículum</h3>
-      <p>Experiencia, formación y competencias clave.</p>
-      <a href="cv.html">Ver más</a>
-    </div>
-    <div class="card">
-      <h3>🧪 Proyectos</h3>
-      <p>Software, SOC modular, apps y automatización.</p>
-      <a href="proyectos.html">Explorar</a>
-    </div>
-    <div class="card">
-      <h3>📚 Documentos</h3>
-      <p>Ejercicios técnicos, informes y artículos.</p>
-      <a href="documentos.html">Leer</a>
-    </div>
-    <div class="card">
-      <h3>📬 Contacto</h3>
-      <p>LinkedIn, correo y redes profesionales.</p>
-      <a href="contacto.html">Conectar</a>
-    </div>
-  </section>
+    <section class="portfolio" id="portfolio">
+        <h2 class="heading">Mis <span>Proyectos</span></h2>
+        <div class="portfolio-container">
+            
+            <div class="portfolio-box">
+                <img src="https://via.placeholder.com/400x300" alt="Proyecto 1">
+                <div class="portfolio-layer">
+                    <h4>Clon de Wallapop</h4>
+                    <p>Aplicación de compra-venta de artículos, desarrollada con el stack MERN.</p>
+                    <a href="https://github.com/Moydehuelva/wallapop-react-backend" target="_blank"><i class="fas fa-external-link-alt"></i></a>
+                </div>
+            </div>
 
-  <footer>
-    &copy; 2025 Moisés González López · Portfolio en GitHub Pages
-  </footer>
+            <div class="portfolio-box">
+                <img src="https://via.placeholder.com/400x300" alt="Proyecto 2">
+                <div class="portfolio-layer">
+                    <h4>Web de Noticias</h4>
+                    <p>Plataforma para visualizar y filtrar noticias, usando una API externa.</p>
+                    <a href="https://github.com/Moydehuelva/noticias-js-api" target="_blank"><i class="fas fa-external-link-alt"></i></a>
+                </div>
+            </div>
+
+            <div class="portfolio-box">
+                <img src="https://via.placeholder.com/400x300" alt="Proyecto 3">
+                <div class="portfolio-layer">
+                    <h4>App del Tiempo</h4>
+                    <p>Consulta el clima de cualquier ciudad en tiempo real. Hecha con JavaScript y una API meteorológica.</p>
+                    <a href="https://github.com/Moydehuelva/app-tiempo-js" target="_blank"><i class="fas fa-external-link-alt"></i></a>
+                </div>
+            </div>
+            
+            </div>
+    </section>
+
+    <section class="contact" id="contact">
+        <h2 class="heading">¡Hablemos!</h2>
+        <form action="#"> <div class="input-box">
+                <input type="text" placeholder="Nombre Completo" required>
+                <input type="email" placeholder="Correo Electrónico" required>
+            </div>
+            <textarea name="" id="" cols="30" rows="10" placeholder="Tu Mensaje" required></textarea>
+            <input type="submit" value="Enviar Mensaje" class="btn">
+        </form>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-text">
+            <p>&copy; 2025 | Diseñado y desarrollado por Moisés. Todos los derechos reservados.</p>
+        </div>
+        <div class="footer-iconTop">
+            <a href="#home"><i class="fas fa-arrow-up"></i></a>
+        </div>
+    </footer>
+
 
 </body>
 </html>
