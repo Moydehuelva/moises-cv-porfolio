@@ -310,15 +310,15 @@ section {
 }
 
 .certificacion-box h3 {
-    font-size: 2.2rem;
+    font-size: 2.4rem; /* Aumentado */
     font-family: 'Poppins', sans-serif;
     margin-bottom: 1.5rem;
 }
 
 .certificacion-box p {
-    font-size: 1.6rem;
+    font-size: 1.7rem; /* Aumentado */
     line-height: 1.6;
-    flex-grow: 1; /* Permite que el párrafo crezca para alinear los botones */
+    flex-grow: 1; 
     margin-bottom: 2rem;
 }
 
@@ -339,6 +339,71 @@ section {
     box-shadow: none;
 }
 
+/* ======== NUEVA SECCIÓN: LABORATORIOS Y DOCUMENTACIÓN ======== */
+.laboratorios {
+    background: var(--bg-color);
+}
+
+.laboratorios-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+}
+
+.lab-box {
+    background: var(--second-bg-color);
+    padding: 3rem 2rem 4rem;
+    border-radius: 2rem;
+    text-align: center;
+    border: .2rem solid var(--second-bg-color);
+    transition: all .5s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.lab-box:hover {
+    border-color: var(--main-color);
+    transform: scale(1.02);
+}
+
+.lab-box i {
+    font-size: 7rem;
+    color: var(--main-color);
+    margin-bottom: 2rem;
+}
+
+.lab-box h3 {
+    font-size: 2.4rem;
+    font-family: 'Poppins', sans-serif;
+    margin-bottom: 1.5rem;
+}
+
+.lab-box p {
+    font-size: 1.7rem;
+    line-height: 1.6;
+    flex-grow: 1;
+    margin-bottom: 2rem;
+}
+
+.lab-box .btn {
+    display: inline-block;
+    padding: 1rem 2.8rem;
+    background: var(--main-color);
+    border-radius: 4rem;
+    font-size: 1.4rem;
+    color: var(--second-bg-color);
+    letter-spacing: .1rem;
+    font-weight: 600;
+    transition: all .5s ease;
+    box-shadow: 0 0 1rem var(--main-color);
+}
+
+.lab-box .btn:hover {
+    box-shadow: none;
+}
+
+
 /* ======== FOOTER ======== */
 .footer {
     display: flex;
@@ -346,7 +411,7 @@ section {
     align-items: center;
     flex-wrap: wrap;
     padding: 2rem 9%;
-    background: var(--bg-color);
+    background: var(--second-bg-color);
 }
 
 .footer-text p {
@@ -422,7 +487,6 @@ section {
 }
 
 @media (max-width: 768px) {
-    /* Aquí podrías añadir un menú hamburguesa en el futuro */
     .navbar {
         display: none; 
     }
@@ -458,7 +522,8 @@ section {
         grid-template-columns: repeat(2, 1fr);
     }
 
-    .certificaciones-container {
+    .certificaciones-container,
+    .laboratorios-container { /* Añadido .laboratorios-container */
         grid-template-columns: 1fr;
     }
 
