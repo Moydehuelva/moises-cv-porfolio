@@ -1,3 +1,4 @@
+
 /* ======== RESETEO BÁSICO Y VARIABLES ======== */
 * {
     margin: 0;
@@ -14,11 +15,11 @@
     --bg-color: #1f242d;
     --second-bg-color: #323946;
     --text-color: #ffffff;
-    --main-color: #0ef; /* Un cian vibrante como color de acento */
+    --main-color: #0ef; 
 }
 
 html {
-    font-size: 62.5%; /* 1rem = 10px para facilidad de cálculo */
+    font-size: 62.5%;
     overflow-x: hidden;
 }
 
@@ -44,7 +45,7 @@ section {
 }
 
 
-/* ======== HEADER / NAVBAR ======== */
+/* ======== HEADER / NAVBAR (Sección Fija) ======== */
 .header {
     position: fixed;
     top: 0;
@@ -79,7 +80,7 @@ section {
     color: var(--main-color);
 }
 
-/* ======== SECCIÓN INICIO (HERO) ======== */
+/* ======== SECCIÓN INICIO (Sección Fija) ======== */
 .home {
     display: flex;
     justify-content: center;
@@ -150,7 +151,7 @@ section {
     box-shadow: 0 0 1rem var(--main-color);
 }
 
-/* ======== SECCIÓN SOBRE MÍ ======== */
+/* ======== SECCIÓN SOBRE MÍ (Sección Fija) ======== */
 .about {
     display: flex;
     justify-content: center;
@@ -161,9 +162,13 @@ section {
 
 .about-img img {
     width: 35vw;
-    border-radius: 50%;
-    border: 1rem solid var(--main-color);
+    border-radius: 15px; /* Ligeramente menos redondeado para un look más moderno */
+    border: .5rem solid var(--main-color);
     box-shadow: 0 0 2rem var(--main-color);
+}
+
+.about-content {
+    max-width: 60rem;
 }
 
 .about-content h2 {
@@ -200,32 +205,35 @@ section {
     color: var(--text-color);
 }
 
-/* ======== SECCIÓN PORTFOLIO (VERSIÓN CORREGIDA Y ROBUSTA) ======== */
-.portfolio {
-    background: var(--bg-color);
-    padding-bottom: 10rem; /* Añadimos espacio inferior */
+/* ======== ESTILOS PARA SECCIONES DINÁMICAS (Portfolio, Formación, Labs) ======== */
+
+.portfolio, .certificaciones, .laboratorios {
+    padding-bottom: 10rem;
 }
 
-.portfolio-container {
+.portfolio-container,
+.certificaciones-container,
+.laboratorios-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr)); /* Mejora para responsividad */
     gap: 2.5rem;
+    /* --- La clave para el diseño dinámico está aquí --- */
+    /* Crea tantas columnas como quepan, con un mínimo de 320px de ancho cada una */
+    grid-template-columns: repeat(auto-fit, minmax(32rem, 1fr));
 }
 
+/* Estilos para las cajas de Portfolio (Dinámico) */
 .portfolio-box {
     position: relative;
     border-radius: 2rem;
     box-shadow: 0 0 1rem var(--second-bg-color);
     overflow: hidden;
     display: flex;
-    /* Forzamos una proporción para que la caja siempre tenga tamaño */
     aspect-ratio: 4 / 3; 
 }
 
 .portfolio-box img {
     width: 100%;
     height: 100%;
-    /* La imagen cubre toda la caja sin deformarse */
     object-fit: cover; 
     transition: .5s ease;
 }
@@ -247,21 +255,21 @@ section {
     flex-direction: column;
     text-align: center;
     padding: 0 4rem;
-    opacity: 0; /* Oculto por defecto */
+    opacity: 0;
     transition: .5s ease;
 }
 
 .portfolio-box:hover .portfolio-layer {
-    opacity: 1; /* Aparece al hacer hover */
+    opacity: 1;
 }
 
 .portfolio-layer h4 {
-    font-size: 3rem;
+    font-size: 2.4rem; /* Ajuste para textos largos */
     font-family: 'Poppins', sans-serif;
 }
 
 .portfolio-layer p {
-    font-size: 1.6rem;
+    font-size: 1.5rem;
     margin: .3rem 0 1rem;
 }
 
@@ -280,117 +288,49 @@ section {
     color: var(--second-bg-color);
 }
 
-/* ======== SECCIÓN CERTIFICACIONES Y CURSOS ======== */
-.certificaciones {
-    background: var(--second-bg-color);
-}
-
-.certificaciones-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2.5rem;
-}
-
-.certificacion-box {
-    background: var(--bg-color);
-    padding: 3rem 2rem 4rem;
-    border-radius: 2rem;
-    text-align: center;
-    border: .2rem solid var(--bg-color);
-    transition: all .5s ease;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-.certificacion-box:hover {
-    border-color: var(--main-color);
-    transform: scale(1.02);
-}
-
-.certificacion-box i {
-    font-size: 7rem;
-    color: var(--main-color);
-    margin-bottom: 2rem;
-}
-
-.certificacion-box h3 {
-    font-size: 2.4rem; /* Aumentado */
-    font-family: 'Poppins', sans-serif;
-    margin-bottom: 1.5rem;
-}
-
-.certificacion-box p {
-    font-size: 1.7rem; /* Aumentado */
-    line-height: 1.6;
-    flex-grow: 1; 
-    margin-bottom: 2rem;
-}
-
-.certificacion-box .btn {
-    display: inline-block;
-    padding: 1rem 2.8rem;
-    background: var(--main-color);
-    border-radius: 4rem;
-    font-size: 1.4rem;
-    color: var(--second-bg-color);
-    letter-spacing: .1rem;
-    font-weight: 600;
-    transition: all .5s ease;
-    box-shadow: 0 0 1rem var(--main-color);
-}
-
-.certificacion-box .btn:hover {
-    box-shadow: none;
-}
-
-/* ======== NUEVA SECCIÓN: LABORATORIOS Y DOCUMENTACIÓN ======== */
-.laboratorios {
-    background: var(--bg-color);
-}
-
-.laboratorios-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2.5rem;
-}
-
+/* Estilos para las cajas de Formación y Labs (Dinámico) */
+.certificacion-box,
 .lab-box {
     background: var(--second-bg-color);
     padding: 3rem 2rem 4rem;
     border-radius: 2rem;
     text-align: center;
-    border: .2rem solid var(--second-bg-color);
+    border: .2rem solid transparent; /* Borde transparente para evitar saltos */
     transition: all .5s ease;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
 }
 
+.certificacion-box:hover,
 .lab-box:hover {
     border-color: var(--main-color);
-    transform: scale(1.02);
+    transform: translateY(-5px); /* Efecto de elevación sutil */
 }
 
+.certificacion-box i,
 .lab-box i {
-    font-size: 7rem;
+    font-size: 6rem;
     color: var(--main-color);
     margin-bottom: 2rem;
 }
 
+.certificacion-box h3,
 .lab-box h3 {
-    font-size: 2.4rem;
+    font-size: 2.2rem;
     font-family: 'Poppins', sans-serif;
     margin-bottom: 1.5rem;
+    flex-grow: 0; /* No permitir que el título crezca */
 }
 
+.certificacion-box p,
 .lab-box p {
-    font-size: 1.7rem;
+    font-size: 1.6rem;
     line-height: 1.6;
-    flex-grow: 1;
+    flex-grow: 1; /* Permite que el párrafo crezca para alinear los botones */
     margin-bottom: 2rem;
 }
 
+.certificacion-box .btn,
 .lab-box .btn {
     display: inline-block;
     padding: 1rem 2.8rem;
@@ -402,21 +342,22 @@ section {
     font-weight: 600;
     transition: all .5s ease;
     box-shadow: 0 0 1rem var(--main-color);
+    align-self: center; /* Centra el botón en la caja */
 }
 
+.certificacion-box .btn:hover,
 .lab-box .btn:hover {
     box-shadow: none;
 }
 
-
-/* ======== FOOTER ======== */
+/* ======== FOOTER (Sección Fija) ======== */
 .footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
     padding: 2rem 9%;
-    background: var(--second-bg-color);
+    background: var(--bg-color);
 }
 
 .footer-text p {
@@ -468,7 +409,7 @@ section {
 }
 
 
-/* ======== MEDIA QUERIES (RESPONSIVE) ======== */
+/* ======== MEDIA QUERIES (Responsive) ======== */
 
 @media (max-width: 1200px) {
     html {
@@ -482,9 +423,6 @@ section {
     }
     section {
         padding: 10rem 3% 2rem;
-    }
-    .portfolio {
-        padding-bottom: 7rem;
     }
     .footer {
         padding: 2rem 3%;
@@ -519,28 +457,9 @@ section {
         margin-top: 4rem;
     }
 
-    .portfolio h2 {
-        margin-bottom: 3rem;
-    }
-
-    .portfolio-container {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .certificaciones-container,
-    .laboratorios-container { /* Añadido .laboratorios-container */
-        grid-template-columns: 1fr;
-    }
-
     .footer {
         flex-direction: column-reverse;
         gap: 2rem;
-    }
-}
-
-@media (max-width: 617px) {
-    .portfolio-container {
-        grid-template-columns: 1fr;
     }
 }
 
