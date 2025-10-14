@@ -27,15 +27,8 @@ body {
     color: var(--text-color);
 }
 
-/* --- CORRECCIÓN CLAVE 1: Ajuste de la altura de la sección --- */
 section {
-    /* Eliminamos min-height: 100vh para que la sección no ocupe toda la pantalla */
-    padding: 10rem 9% 8rem; /* Añadimos padding inferior para separar secciones */
-}
-
-/* La sección de inicio sí queremos que ocupe toda la pantalla */
-.home {
-    min-height: 100vh;
+    padding: 10rem 9% 8rem;
 }
 
 .heading {
@@ -85,11 +78,20 @@ section {
     color: var(--main-color);
 }
 
-/* ======== SECCIÓN INICIO ======== */
+/* ======== SECCIÓN INICIO (CORREGIDA) ======== */
 .home {
+    min-height: 100vh; /* Ocupa al menos toda la pantalla */
     display: flex;
     justify-content: center;
-    align-items: center;
+    /* --- CORRECCIÓN CLAVE --- */
+    /* Eliminamos 'align-items: center' para que el contenido no se corte si es muy alto */
+    /* El padding superior de la sección se encargará de darle espacio arriba */
+}
+
+.home-content {
+    /* Añadimos esto para que el contenido principal tenga un límite y se centre bien */
+    max-width: 80rem;
+    text-align: center; /* Centramos todo el texto dentro de este contenedor */
 }
 
 .home-content h3 {
@@ -111,28 +113,20 @@ section {
     line-height: 1.6;
 }
 
+/* Ajustamos el grupo de botones y los iconos sociales para que se centren */
+.btn-group {
+    display: inline-flex; /* Usamos inline-flex para que se ajuste al contenido */
+    gap: 1.5rem; /* Espacio entre botones */
+    justify-content: center;
+    flex-wrap: wrap; /* Permite que los botones se apilen si no caben */
+}
+
 .btn-group .btn {
-    display: inline-block;
-    padding: 1.2rem 2.8rem;
-    background: var(--main-color);
-    border-radius: 4rem;
-    box-shadow: 0 0 1rem var(--main-color);
-    font-size: 1.6rem;
-    color: var(--second-bg-color);
-    letter-spacing: .1rem;
-    font-weight: 600;
-    transition: all .5s ease;
-    margin-right: 1.5rem;
+    margin-right: 0; /* Eliminamos el margen que ya no es necesario */
 }
 
-.btn-group .btn:hover {
-    box-shadow: none;
-}
-
-.btn.btn-secondary {
-    background: transparent;
-    color: var(--main-color);
-    border: .2rem solid var(--main-color);
+.home-social {
+    margin-top: 3rem; /* Espacio sobre los iconos */
 }
 
 .home-social a {
@@ -146,7 +140,7 @@ section {
     border-radius: 50%;
     font-size: 2rem;
     color: var(--main-color);
-    margin: 3rem 1.5rem 3rem 0;
+    margin: 0 1rem; /* Margen a los lados */
     transition: all .5s ease;
 }
 
@@ -172,10 +166,7 @@ section {
     box-shadow: 0 0 2rem var(--main-color);
 }
 
-.about-content {
-    max-width: 60rem;
-}
-
+.about-content { max-width: 60rem; }
 .about-content h2 { text-align: left; }
 .about-content h3 { font-size: 2.6rem; margin-bottom: 1.5rem; }
 .about-content p { font-size: 1.6rem; margin-bottom: 2rem; line-height: 1.6; }
@@ -183,48 +174,21 @@ section {
 .about-content .skills-list p { font-size: 1.6rem; line-height: 1.7; margin-bottom: 1rem; }
 .about-content .skills-list strong { font-weight: 700; color: var(--text-color); }
 
-/* ======== ESTILOS PARA SECCIONES CON CUADRÍCULAS DINÁMICAS ======== */
-
+/* ======== SECCIONES CON CUADRÍCULAS DINÁMICAS ======== */
 .portfolio-container,
 .certificaciones-container,
 .laboratorios-container {
     display: grid;
     gap: 2.5rem;
     grid-template-columns: repeat(auto-fit, minmax(32rem, 1fr));
-    /* --- CORRECCIÓN CLAVE 2: Ajuste de la altura de las cajas --- */
-    /* Evita que los items se estiren, haciendo que cada uno tenga su propia altura */
-    align-items: start;
+    align-items: start; /* Cada caja se ajusta a su propio contenido */
 }
 
 /* Estilos para las cajas de Portfolio */
-.portfolio-box {
-    position: relative;
-    border-radius: 2rem;
-    box-shadow: 0 0 1rem var(--second-bg-color);
-    overflow: hidden;
-    display: flex;
-    aspect-ratio: 4 / 3; 
-}
-
-.portfolio-box img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; 
-    transition: .5s ease;
-}
-
-.portfolio-box:hover img {
-    transform: scale(1.1);
-}
-
-.portfolio-layer {
-    position: absolute;
-    bottom: 0; left: 0; width: 100%; height: 100%;
-    background: linear-gradient(rgba(0,0,0, .3), var(--main-color));
-    display: flex; justify-content: center; align-items: center; flex-direction: column;
-    text-align: center; padding: 0 4rem; opacity: 0; transition: .5s ease;
-}
-
+.portfolio-box { position: relative; border-radius: 2rem; box-shadow: 0 0 1rem var(--second-bg-color); overflow: hidden; display: flex; aspect-ratio: 4 / 3; }
+.portfolio-box img { width: 100%; height: 100%; object-fit: cover; transition: .5s ease; }
+.portfolio-box:hover img { transform: scale(1.1); }
+.portfolio-layer { position: absolute; bottom: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(rgba(0,0,0, .3), var(--main-color)); display: flex; justify-content: center; align-items: center; flex-direction: column; text-align: center; padding: 0 4rem; opacity: 0; transition: .5s ease; }
 .portfolio-box:hover .portfolio-layer { opacity: 1; }
 .portfolio-layer h4 { font-size: 2.4rem; font-family: 'Poppins', sans-serif; }
 .portfolio-layer p { font-size: 1.5rem; margin: .3rem 0 1rem; }
@@ -233,41 +197,17 @@ section {
 
 /* Estilos para las cajas de Formación y Labs */
 .certificacion-box,
-.lab-box {
-    background: var(--second-bg-color);
-    padding: 3rem 2rem 4rem;
-    border-radius: 2rem;
-    text-align: center;
-    border: .2rem solid transparent;
-    transition: all .5s ease;
-    display: flex;
-    flex-direction: column;
-    /* Aseguramos que la caja tenga una altura mínima para que flex funcione bien */
-    min-height: 100%; 
-}
-
+.lab-box { background: var(--second-bg-color); padding: 3rem 2rem 4rem; border-radius: 2rem; text-align: center; border: .2rem solid transparent; transition: all .5s ease; display: flex; flex-direction: column; min-height: 100%; }
 .certificacion-box:hover,
-.lab-box:hover {
-    border-color: var(--main-color);
-    transform: translateY(-5px);
-}
-
+.lab-box:hover { border-color: var(--main-color); transform: translateY(-5px); }
 .certificacion-box i, .lab-box i { font-size: 6rem; color: var(--main-color); margin-bottom: 2rem; }
 .certificacion-box h3, .lab-box h3 { font-size: 2.2rem; font-family: 'Poppins', sans-serif; margin-bottom: 1.5rem; }
 .certificacion-box p, .lab-box p { font-size: 1.6rem; line-height: 1.6; margin-bottom: 2rem; }
-.certificacion-box .btn, .lab-box .btn { display: inline-block; padding: 1rem 2.8rem; background: var(--main-color); border-radius: 4rem; font-size: 1.4rem; color: var(--second-bg-color); letter-spacing: .1rem; font-weight: 600; transition: all .5s ease; box-shadow: 0 0 1rem var(--main-color); align-self: center; /* Empuja el botón al final de la caja */ margin-top: auto; }
+.certificacion-box .btn, .lab-box .btn { display: inline-block; padding: 1rem 2.8rem; background: var(--main-color); border-radius: 4rem; font-size: 1.4rem; color: var(--second-bg-color); letter-spacing: .1rem; font-weight: 600; transition: all .5s ease; box-shadow: 0 0 1rem var(--main-color); align-self: center; margin-top: auto; }
 .certificacion-box .btn:hover, .lab-box .btn:hover { box-shadow: none; }
 
 /* ======== FOOTER ======== */
-.footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    padding: 2rem 9%;
-    background: var(--bg-color);
-}
-
+.footer { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; padding: 2rem 9%; background: var(--bg-color); }
 .footer-text p { font-size: 1.6rem; }
 .footer-social { display: flex; gap: 1.5rem; }
 .footer-social a { display: inline-flex; justify-content: center; align-items: center; width: 4rem; height: 4rem; background: transparent; border: .2rem solid var(--main-color); border-radius: 50%; font-size: 2rem; color: var(--main-color); transition: all .5s ease; }
@@ -286,7 +226,7 @@ section {
 
 @media (max-width: 768px) {
     .navbar { display: none; }
-    .home { flex-direction: column; text-align: center; }
+    .home { flex-direction: column; text-align: center; } /* Se asegura de que en móvil el contenido social vaya debajo */
     .home-social { margin-top: 2rem; }
     .about { flex-direction: column-reverse; text-align: center; }
     .about-content h2 { text-align: center; }
@@ -298,4 +238,4 @@ section {
     html { font-size: 50%; }
     .home-content .btn-group { display: flex; flex-direction: column; align-items: center; gap: 1.5rem; }
     .home-content .btn-group a { width: 70%; margin-right: 0; }
-    }
+}
