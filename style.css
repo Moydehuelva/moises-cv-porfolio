@@ -161,7 +161,7 @@ section {
 
 .about-img img {
     width: 35vw;
-    border-radius: 15px; /* Ligeramente menos redondeado para un look más moderno */
+    border-radius: 15px; 
     border: .5rem solid var(--main-color);
     box-shadow: 0 0 2rem var(--main-color);
 }
@@ -215,8 +215,6 @@ section {
 .laboratorios-container {
     display: grid;
     gap: 2.5rem;
-    /* --- La clave para el diseño dinámico está aquí --- */
-    /* Crea tantas columnas como quepan, con un mínimo de 320px de ancho cada una */
     grid-template-columns: repeat(auto-fit, minmax(32rem, 1fr));
 }
 
@@ -263,7 +261,7 @@ section {
 }
 
 .portfolio-layer h4 {
-    font-size: 2.4rem; /* Ajuste para textos largos */
+    font-size: 2.4rem;
     font-family: 'Poppins', sans-serif;
 }
 
@@ -287,14 +285,14 @@ section {
     color: var(--second-bg-color);
 }
 
-/* Estilos para las cajas de Formación y Labs (Dinámico) */
+/* Estilos para las cajas de Formación y Labs (Dinámico y CORREGIDO) */
 .certificacion-box,
 .lab-box {
     background: var(--second-bg-color);
     padding: 3rem 2rem 4rem;
     border-radius: 2rem;
     text-align: center;
-    border: .2rem solid transparent; /* Borde transparente para evitar saltos */
+    border: .2rem solid transparent;
     transition: all .5s ease;
     display: flex;
     flex-direction: column;
@@ -303,7 +301,7 @@ section {
 .certificacion-box:hover,
 .lab-box:hover {
     border-color: var(--main-color);
-    transform: translateY(-5px); /* Efecto de elevación sutil */
+    transform: translateY(-5px);
 }
 
 .certificacion-box i,
@@ -318,15 +316,15 @@ section {
     font-size: 2.2rem;
     font-family: 'Poppins', sans-serif;
     margin-bottom: 1.5rem;
-    flex-grow: 0; /* No permitir que el título crezca */
 }
 
 .certificacion-box p,
 .lab-box p {
     font-size: 1.6rem;
     line-height: 1.6;
-    flex-grow: 1; /* Permite que el párrafo crezca para alinear los botones */
     margin-bottom: 2rem;
+    /* --- CORRECCIÓN: Eliminamos flex-grow para que el párrafo no se estire --- */
+    flex-grow: 0; 
 }
 
 .certificacion-box .btn,
@@ -341,7 +339,9 @@ section {
     font-weight: 600;
     transition: all .5s ease;
     box-shadow: 0 0 1rem var(--main-color);
-    align-self: center; /* Centra el botón en la caja */
+    align-self: center;
+    /* --- CORRECCIÓN: Esta línea empuja el botón al final de la caja --- */
+    margin-top: auto; 
 }
 
 .certificacion-box .btn:hover,
@@ -409,12 +409,6 @@ section {
 
 
 /* ======== MEDIA QUERIES (Responsive) ======== */
-
-@media (max-width: 1200px) {
-    html {
-        font-size: 55%;
-    }
-}
 
 @media (max-width: 991px) {
     .header {
