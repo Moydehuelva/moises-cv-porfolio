@@ -27,9 +27,15 @@ body {
     color: var(--text-color);
 }
 
+/* --- CORRECCIÓN CLAVE 1: Ajuste de la altura de la sección --- */
 section {
+    /* Eliminamos min-height: 100vh para que la sección no ocupe toda la pantalla */
+    padding: 10rem 9% 8rem; /* Añadimos padding inferior para separar secciones */
+}
+
+/* La sección de inicio sí queremos que ocupe toda la pantalla */
+.home {
     min-height: 100vh;
-    padding: 10rem 9% 2rem;
 }
 
 .heading {
@@ -44,7 +50,7 @@ section {
 }
 
 
-/* ======== HEADER / NAVBAR (Sección Fija) ======== */
+/* ======== HEADER / NAVBAR ======== */
 .header {
     position: fixed;
     top: 0;
@@ -79,7 +85,7 @@ section {
     color: var(--main-color);
 }
 
-/* ======== SECCIÓN INICIO (Sección Fija) ======== */
+/* ======== SECCIÓN INICIO ======== */
 .home {
     display: flex;
     justify-content: center;
@@ -150,7 +156,7 @@ section {
     box-shadow: 0 0 1rem var(--main-color);
 }
 
-/* ======== SECCIÓN SOBRE MÍ (Sección Fija) ======== */
+/* ======== SECCIÓN SOBRE MÍ ======== */
 .about {
     display: flex;
     justify-content: center;
@@ -170,51 +176,27 @@ section {
     max-width: 60rem;
 }
 
-.about-content h2 {
-    text-align: left;
-}
+.about-content h2 { text-align: left; }
+.about-content h3 { font-size: 2.6rem; margin-bottom: 1.5rem; }
+.about-content p { font-size: 1.6rem; margin-bottom: 2rem; line-height: 1.6; }
+.about-content .skills-heading { font-size: 2.2rem; font-family: 'Poppins', sans-serif; color: var(--main-color); margin-top: 3rem; margin-bottom: 1rem; }
+.about-content .skills-list p { font-size: 1.6rem; line-height: 1.7; margin-bottom: 1rem; }
+.about-content .skills-list strong { font-weight: 700; color: var(--text-color); }
 
-.about-content h3 {
-    font-size: 2.6rem;
-    margin-bottom: 1.5rem;
-}
+/* ======== ESTILOS PARA SECCIONES CON CUADRÍCULAS DINÁMICAS ======== */
 
-.about-content p {
-    font-size: 1.6rem;
-    margin-bottom: 2rem;
-    line-height: 1.6;
-}
-
-.about-content .skills-heading {
-    font-size: 2.2rem;
-    font-family: 'Poppins', sans-serif;
-    color: var(--main-color);
-    margin-top: 3rem;
-    margin-bottom: 1rem;
-}
-
-.about-content .skills-list p {
-    font-size: 1.6rem;
-    line-height: 1.7;
-    margin-bottom: 1rem;
-}
-
-.about-content .skills-list strong {
-    font-weight: 700;
-    color: var(--text-color);
-}
-
-/* ======== SECCIÓN PORTFOLIO (Dinámico con Grid) ======== */
-.portfolio {
-    padding-bottom: 10rem;
-}
-
-.portfolio-container {
+.portfolio-container,
+.certificaciones-container,
+.laboratorios-container {
     display: grid;
     gap: 2.5rem;
     grid-template-columns: repeat(auto-fit, minmax(32rem, 1fr));
+    /* --- CORRECCIÓN CLAVE 2: Ajuste de la altura de las cajas --- */
+    /* Evita que los items se estiren, haciendo que cada uno tenga su propia altura */
+    align-items: start;
 }
 
+/* Estilos para las cajas de Portfolio */
 .portfolio-box {
     position: relative;
     border-radius: 2rem;
@@ -237,44 +219,19 @@ section {
 
 .portfolio-layer {
     position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    bottom: 0; left: 0; width: 100%; height: 100%;
     background: linear-gradient(rgba(0,0,0, .3), var(--main-color));
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    text-align: center;
-    padding: 0 4rem;
-    opacity: 0;
-    transition: .5s ease;
+    display: flex; justify-content: center; align-items: center; flex-direction: column;
+    text-align: center; padding: 0 4rem; opacity: 0; transition: .5s ease;
 }
 
-.portfolio-box:hover .portfolio-layer {
-    opacity: 1;
-}
-
+.portfolio-box:hover .portfolio-layer { opacity: 1; }
 .portfolio-layer h4 { font-size: 2.4rem; font-family: 'Poppins', sans-serif; }
 .portfolio-layer p { font-size: 1.5rem; margin: .3rem 0 1rem; }
 .portfolio-layer a { display: inline-flex; justify-content: center; align-items: center; width: 5rem; height: 5rem; background: var(--text-color); border-radius: 50%; }
 .portfolio-layer a i { font-size: 2rem; color: var(--second-bg-color); }
 
-/* ======== SECCIONES MASONRY: Formación y Labs (CORRECCIÓN FINAL) ======== */
-
-.certificaciones, .laboratorios {
-    padding-bottom: 10rem;
-}
-
-/* --- ESTE ES EL NUEVO CONTENEDOR MASONRY --- */
-.certificaciones-container,
-.laboratorios-container {
-    column-count: 3; /* 3 columnas en escritorio */
-    column-gap: 2.5rem;
-}
-
-/* --- ESTAS SON LAS CAJAS DENTRO DEL MASONRY --- */
+/* Estilos para las cajas de Formación y Labs */
 .certificacion-box,
 .lab-box {
     background: var(--second-bg-color);
@@ -283,10 +240,10 @@ section {
     text-align: center;
     border: .2rem solid transparent;
     transition: all .5s ease;
-    display: inline-block; /* Importante para el layout de columnas */
-    width: 100%; /* Ocupa todo el ancho de su columna */
-    margin-bottom: 2.5rem; /* Espacio vertical entre cajas */
-    break-inside: avoid; /* Evita que una caja se parta entre dos columnas */
+    display: flex;
+    flex-direction: column;
+    /* Aseguramos que la caja tenga una altura mínima para que flex funcione bien */
+    min-height: 100%; 
 }
 
 .certificacion-box:hover,
@@ -298,10 +255,10 @@ section {
 .certificacion-box i, .lab-box i { font-size: 6rem; color: var(--main-color); margin-bottom: 2rem; }
 .certificacion-box h3, .lab-box h3 { font-size: 2.2rem; font-family: 'Poppins', sans-serif; margin-bottom: 1.5rem; }
 .certificacion-box p, .lab-box p { font-size: 1.6rem; line-height: 1.6; margin-bottom: 2rem; }
-.certificacion-box .btn, .lab-box .btn { display: inline-block; padding: 1rem 2.8rem; background: var(--main-color); border-radius: 4rem; font-size: 1.4rem; color: var(--second-bg-color); letter-spacing: .1rem; font-weight: 600; transition: all .5s ease; box-shadow: 0 0 1rem var(--main-color); }
+.certificacion-box .btn, .lab-box .btn { display: inline-block; padding: 1rem 2.8rem; background: var(--main-color); border-radius: 4rem; font-size: 1.4rem; color: var(--second-bg-color); letter-spacing: .1rem; font-weight: 600; transition: all .5s ease; box-shadow: 0 0 1rem var(--main-color); align-self: center; /* Empuja el botón al final de la caja */ margin-top: auto; }
 .certificacion-box .btn:hover, .lab-box .btn:hover { box-shadow: none; }
 
-/* ======== FOOTER (Sección Fija) ======== */
+/* ======== FOOTER ======== */
 .footer {
     display: flex;
     justify-content: space-between;
@@ -321,17 +278,10 @@ section {
 
 
 /* ======== MEDIA QUERIES (Responsive) ======== */
-
 @media (max-width: 991px) {
     .header { padding: 2rem 3%; }
-    section { padding: 10rem 3% 2rem; }
+    section { padding: 10rem 3% 6rem; }
     .footer { padding: 2rem 3%; }
-
-    /* Masonry en tablets */
-    .certificaciones-container,
-    .laboratorios-container {
-        column-count: 2;
-    }
 }
 
 @media (max-width: 768px) {
@@ -342,16 +292,10 @@ section {
     .about-content h2 { text-align: center; }
     .about-img img { width: 70vw; margin-top: 4rem; }
     .footer { flex-direction: column-reverse; gap: 2rem; }
-
-    /* Masonry en móviles */
-    .certificaciones-container,
-    .laboratorios-container {
-        column-count: 1;
-    }
 }
 
 @media (max-width: 450px) {
     html { font-size: 50%; }
     .home-content .btn-group { display: flex; flex-direction: column; align-items: center; gap: 1.5rem; }
     .home-content .btn-group a { width: 70%; margin-right: 0; }
-}
+    }
