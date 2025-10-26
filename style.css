@@ -80,7 +80,7 @@ section {
 
 /* ======== SECCIÓN INICIO (CORREGIDA Y AMPLIADA) ======== */
 .home {
-    min-height: 100vh; /* Vuelve a ocupar toda la pantalla */
+    min-height: 100vh; /* Ocupa toda la pantalla */
     display: flex;
     flex-direction: column; /* Apila el contenido y los iconos sociales */
     justify-content: center;
@@ -113,7 +113,7 @@ section {
 
 .btn-group {
     display: inline-flex;
-    gap: 2rem; /* Más separación */
+    gap: 2rem;
     justify-content: center;
     flex-wrap: wrap;
 }
@@ -123,6 +123,16 @@ section {
     padding: 1.4rem 3.2rem; /* Botones más grandes */
     font-size: 1.8rem; /* Texto de botón más grande */
 }
+
+/* Ocultamos el botón secundario si solo hay uno (opcional, pero limpio) */
+.btn-group .btn-secondary {
+    display: none;
+}
+/* Si solo hay un botón, lo centramos */
+.btn-group .btn:first-child:last-child {
+    margin-right: 0;
+}
+
 
 .home-social {
     margin-top: 4rem; /* Más separación */
@@ -223,10 +233,9 @@ section {
     .footer { padding: 2rem 3%; }
 }
 
-@media (max-config: 768px) {
+@media (max-width: 768px) {
     .navbar { display: none; }
     
-    /* Mantenemos home centrado y apilado en móvil */
     .home { 
         text-align: center; 
     }
@@ -239,12 +248,10 @@ section {
 
 @media (max-width: 450px) {
     html { font-size: 50%; }
-
-    /* Ajustamos los tamaños de fuente de home para móviles */
+    
     .home-content h1 { font-size: 5rem; }
     .home-content h3 { font-size: 2.8rem; }
     .home-content p { font-size: 1.5rem; }
     
     .home-content .btn-group { display: flex; flex-direction: column; align-items: center; gap: 1.5rem; }
-    .home-content .btn-group a { width: 70%; margin-right: 0; }
-}
+    .home-content .btn-group a { width: 70%; margin-right:
