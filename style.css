@@ -78,20 +78,16 @@ section {
     color: var(--main-color);
 }
 
-/* ======== SECCIÓN INICIO (CORREGIDA) ======== */
+/* ======== SECCIÓN INICIO (AJUSTADA AL CONTENIDO) ======== */
 .home {
-    min-height: 100vh; /* Ocupa al menos toda la pantalla */
     display: flex;
     justify-content: center;
-    /* --- CORRECCIÓN CLAVE --- */
-    /* Eliminamos 'align-items: center' para que el contenido no se corte si es muy alto */
-    /* El padding superior de la sección se encargará de darle espacio arriba */
+    align-items: center; 
 }
 
 .home-content {
-    /* Añadimos esto para que el contenido principal tenga un límite y se centre bien */
     max-width: 80rem;
-    text-align: center; /* Centramos todo el texto dentro de este contenedor */
+    text-align: center;
 }
 
 .home-content h3 {
@@ -113,20 +109,19 @@ section {
     line-height: 1.6;
 }
 
-/* Ajustamos el grupo de botones y los iconos sociales para que se centren */
 .btn-group {
-    display: inline-flex; /* Usamos inline-flex para que se ajuste al contenido */
-    gap: 1.5rem; /* Espacio entre botones */
+    display: inline-flex;
+    gap: 1.5rem;
     justify-content: center;
-    flex-wrap: wrap; /* Permite que los botones se apilen si no caben */
+    flex-wrap: wrap;
 }
 
 .btn-group .btn {
-    margin-right: 0; /* Eliminamos el margen que ya no es necesario */
+    margin-right: 0;
 }
 
 .home-social {
-    margin-top: 3rem; /* Espacio sobre los iconos */
+    margin-top: 3rem;
 }
 
 .home-social a {
@@ -140,7 +135,7 @@ section {
     border-radius: 50%;
     font-size: 2rem;
     color: var(--main-color);
-    margin: 0 1rem; /* Margen a los lados */
+    margin: 0 1rem;
     transition: all .5s ease;
 }
 
@@ -161,7 +156,7 @@ section {
 
 .about-img img {
     width: 35vw;
-    border-radius: 25px; 
+    border-radius: 15px; 
     border: .5rem solid var(--main-color);
     box-shadow: 0 0 2rem var(--main-color);
 }
@@ -181,7 +176,7 @@ section {
     display: grid;
     gap: 2.5rem;
     grid-template-columns: repeat(auto-fit, minmax(32rem, 1fr));
-    align-items: start; /* Cada caja se ajusta a su propio contenido */
+    align-items: start; /* Cajas ajustadas a su contenido */
 }
 
 /* Estilos para las cajas de Portfolio */
@@ -226,7 +221,7 @@ section {
 
 @media (max-width: 768px) {
     .navbar { display: none; }
-    .home { flex-direction: column; text-align: center; } /* Se asegura de que en móvil el contenido social vaya debajo */
+    .home { flex-direction: column; text-align: center; }
     .home-social { margin-top: 2rem; }
     .about { flex-direction: column-reverse; text-align: center; }
     .about-content h2 { text-align: center; }
