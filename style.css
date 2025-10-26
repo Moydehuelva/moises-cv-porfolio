@@ -119,6 +119,7 @@ section {
 }
 
 /* --- ESTILOS DE BOTÓN CORREGIDOS --- */
+/* Esta es la regla que estaba mal en tu archivo */
 .btn-group .btn {
     display: inline-block;
     padding: 1.4rem 3.2rem;
