@@ -80,33 +80,33 @@ section {
 
 /* ======== SECCIÓN INICIO (CORREGIDA Y AMPLIADA) ======== */
 .home {
-    min-height: 100vh; /* Ocupa toda la pantalla */
+    min-height: 100vh;
     display: flex;
-    flex-direction: column; /* Apila el contenido y los iconos sociales */
+    flex-direction: column;
     justify-content: center;
     align-items: center; 
 }
 
 .home-content {
-    max-width: 90rem; /* Más ancho para la descripción */
+    max-width: 90rem;
     text-align: center;
 }
 
 .home-content h3 {
-    font-size: 3.6rem; /* Más grande */
+    font-size: 3.6rem;
     font-weight: 700;
     margin-bottom: 1rem;
 }
 
 .home-content h1 {
-    font-size: 6rem; /* Más grande */
+    font-size: 6rem;
     font-weight: 700;
     line-height: 1.3;
     font-family: 'Poppins', sans-serif;
 }
 
 .home-content p {
-    font-size: 1.8rem; /* Más grande */
+    font-size: 1.8rem;
     margin: 2rem 0 4rem;
     line-height: 1.6;
 }
@@ -118,36 +118,46 @@ section {
     flex-wrap: wrap;
 }
 
+/* --- ESTILOS DE BOTÓN CORREGIDOS --- */
 .btn-group .btn {
+    display: inline-block;
+    padding: 1.4rem 3.2rem;
+    font-size: 1.8rem;
+    border-radius: 4rem;
+    letter-spacing: .1rem;
+    font-weight: 600;
+    transition: all .5s ease;
     margin-right: 0;
-    padding: 1.4rem 3.2rem; /* Botones más grandes */
-    font-size: 1.8rem; /* Texto de botón más grande */
+    
+    /* Estilo del botón principal (Descargar CV) */
+    background: var(--main-color);
+    color: var(--second-bg-color);
+    box-shadow: 0 0 1rem var(--main-color);
+    border: .2rem solid var(--main-color);
 }
 
-/* Ocultamos el botón secundario si solo hay uno (opcional, pero limpio) */
-.btn-group .btn-secondary {
-    display: none;
+.btn-group .btn:hover {
+    box-shadow: none;
+    background: transparent;
+    color: var(--main-color);
 }
-/* Si solo hay un botón, lo centramos */
-.btn-group .btn:first-child:last-child {
-    margin-right: 0;
-}
+/* --- FIN DE LA CORRECCIÓN DE BOTONES --- */
 
 
 .home-social {
-    margin-top: 4rem; /* Más separación */
+    margin-top: 4rem;
 }
 
 .home-social a {
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    width: 4.5rem; /* Iconos sociales más grandes */
-    height: 4.5rem; /* Iconos sociales más grandes */
+    width: 4.5rem;
+    height: 4.5rem;
     background: transparent;
     border: .2rem solid var(--main-color);
     border-radius: 50%;
-    font-size: 2.4rem; /* Iconos más grandes */
+    font-size: 2.4rem;
     color: var(--main-color);
     margin: 0 1.2rem;
     transition: all .5s ease;
@@ -254,4 +264,5 @@ section {
     .home-content p { font-size: 1.5rem; }
     
     .home-content .btn-group { display: flex; flex-direction: column; align-items: center; gap: 1.5rem; }
-    .home-content .btn-group a { width: 70%; margin-right:
+    .home-content .btn-group a { width: 70%; margin-right: 0; }
+}
